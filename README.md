@@ -160,6 +160,21 @@ extension UIColor {// uses the CGFloat random function to get the red , green an
 ```
 *Note: when we delete an item the Text Based Confetti will work the same except that it will use red color only to indicate that the item has been deleted*
 
+### 4) Put It All Togather
+After converting the text into an image and generating our random color and it's pallete now we will use them in the following confetti function in which we pass the text image from step 1 as an argument and use the colors we created in step 2 & 3 which are stored in a list named "myColorsList"
+```
+func Confetti(customImage : UIImage){
+       
+         let confettiView = SwiftConfettiView(frame: (self.view.bounds))// for the confetti to cover the full screen
+         self.view.addSubview(confettiView)// add confetti to the screen
+         confettiView.type = .image(customImage) // set the confetti type to image to use the text image we created eearlier
+         confettiView.colors = myColorsList // use the colors we geberated earlier whcih are stored within this list
+         confettiView.intensity = 0.5
+         confettiView.layer.speed = 1
+         confettiView.startConfetti()
+         
+         }
+```
 
 https://user-images.githubusercontent.com/85634099/150862743-7dfeed90-8ebd-4084-892a-3cf7d9b20f9a.mp4
 
